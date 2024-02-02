@@ -1,14 +1,14 @@
 version: "3.3"
-name: bitcoind-testnet3
+name: bitcoind-regnet
 services:
-  testnet3:
+  regnet:
     environment:
       USERID: ${USERID:-1000}
       GROUPID: ${GROUPID:-1000}
     stop_grace_period: 5m
     image: oneforalonee/bitcoind:v26.0
-    container_name: bitcoind-testnet3
-    hostname: testnet3
+    container_name: bitcoind-regnet
+    hostname: regnet
     command: >-
       bitcoind -server=1 -chain=signet
       -debug=1 -zmqpubrawblock=tcp://0.0.0.0:28338
