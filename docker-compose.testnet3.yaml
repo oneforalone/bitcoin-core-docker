@@ -11,17 +11,17 @@ services:
     hostname: testnet3
     command: >-
       bitcoind -server=1 -chain=test
-      -debug=1 -zmqpubrawblock=tcp://0.0.0.0:28334
-      -zmqpubrawtx=tcp://0.0.0.0:28335 -zmqpubhashblock=tcp://0.0.0.0:28336
+      -debug=1 -zmqpubrawblock=tcp://0.0.0.0:28335
+      -zmqpubrawtx=tcp://0.0.0.0:28336 -zmqpubhashblock=tcp://0.0.0.0:28337
       -txindex=1 -dnsseed=0 -upnp=0 -rpcbind=0.0.0.0 -rpcallowip=0.0.0.0/0
       -rpcport=18332 -rest -listen=1 -listenonion=0
     volumes:
       - ./bitcoin:/home/bitcoin/.bitcoin
     expose:
       - "18332"
-      - "28334"
       - "28335"
+      - "28336"
     ports:
       - "18332:18332"
-      - "28334:28334"
-      - "29335:28335"
+      - "28335:28335"
+      - "29336:28336"
