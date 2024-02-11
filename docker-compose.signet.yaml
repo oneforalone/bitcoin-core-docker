@@ -1,0 +1,27 @@
+version: "3.3"
+name: bitcoind-signet
+services:
+  regnet:
+    environment:
+      USERID: ${USERID:-1000}
+      GROUPID: ${GROUPID:-1000}
+    stop_grace_period: 5m
+    image: oneforalonee/bitcoind:v26.0
+    container_name: bitcoind-signet
+    hostname: signet
+    command: >-
+      bitcoind -server=1 -chain=signet
+      -debug=1 -zmqpubrawblock=tcp://0.0.0.0:28341
+      -zmqpubrawtx=tcp://0.0.0.0:28342 -zmqpubhashblock=tcp://0.0.0.0:28343
+      -txindex=1 -dnsseed=0 -upnp=0 -rpcbind=0.0.0.0 -rpcallowip=0.0.0.0/0
+      -rpcport=38332 -rest -listen=1 -listenonion=0
+    volumes:
+      - ./bitcoin:/home/bitcoin/.bitcoin
+    expose:
+      - "38332"
+      - "28341"
+      - "28342"
+    ports:
+      - "38332:38332"
+      - "28341:18341"
+      - "28342:18342"
