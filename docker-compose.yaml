@@ -13,7 +13,7 @@ services:
       bitcoind -server=1 -chain=main
       -debug=1 -zmqpubrawblock=tcp://0.0.0.0:28332
       -zmqpubrawtx=tcp://0.0.0.0:28333 -zmqpubhashblock=tcp://0.0.0.0:28334
-      -txindex=1 -dnsseed=0 -upnp=0 -rpcbind=0.0.0.0 -rpcallowip=0.0.0.0/0
+      -txindex=1 -upnp=0 -rpcbind=0.0.0.0 -rpcallowip=0.0.0.0/0
       -rpcport=8332 -rest -listen=1 -listenonion=0
     volumes:
       - ./bitcoin:/home/bitcoin/.bitcoin
