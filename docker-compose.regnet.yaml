@@ -10,7 +10,7 @@ services:
     container_name: bitcoind-regnet
     hostname: regnet
     command: >-
-      bitcoind -server=1 -chain=regnet
+      bitcoind -server=1 -chain=regtest
       -debug=1 -zmqpubrawblock=tcp://0.0.0.0:28338
       -zmqpubrawtx=tcp://0.0.0.0:28339 -zmqpubhashblock=tcp://0.0.0.0:28340
       -txindex=1 -dnsseed=0 -upnp=0 -rpcbind=0.0.0.0 -rpcallowip=0.0.0.0/0
